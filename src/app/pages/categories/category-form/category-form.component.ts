@@ -40,7 +40,7 @@ export class CategoryFormComponent implements OnInit {
 
 submitform(){
   this.submittingForm = true;
-  if(this.currentAction == "new"){
+  if(this.currentAction === "new"){
     this.createCategory();
   }else{
     this.updateCategory();
@@ -48,7 +48,7 @@ submitform(){
 }
 
   private setCurrentAction(){
-    if(this.route.snapshot.url[0].path == "new"){
+    if(this.route.snapshot.url[0].path === "new"){
       this.currentAction = 'new';
     }
     else{
@@ -65,7 +65,7 @@ submitform(){
   }
 
   private loadCategory(){
-    if (this.currentAction == "edit") {
+    if (this.currentAction === "edit") {
       this.route.paramMap.pipe(
         switchMap(params => this.categoryService.getByID(+params.get("id")))
       )
@@ -81,7 +81,7 @@ submitform(){
 
 
   private setPageTitle(){
-    if(this.currentAction == "new"){
+    if(this.currentAction === "new"){
       this.pageTitle = 'Cadastro de Nova Categoria';
     }else{
       const categoryName = this.category.name || '';

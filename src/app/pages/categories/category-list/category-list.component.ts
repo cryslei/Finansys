@@ -22,10 +22,10 @@ export class CategoryListComponent implements OnInit {
     const mustDelete = confirm("Deseja realmente excluir?");
     if(mustDelete){
     this.categoryService.delete(category.id).subscribe(
-    () => this.categories = this.categories.filter(element => element != category),
-    () => alert("Erro ao deletar")
+      () => this.categories = this.categories.filter(element => element != category),
+      () => alert("Erro ao deletar")
     )
-    }
+  }
 
     
   }
